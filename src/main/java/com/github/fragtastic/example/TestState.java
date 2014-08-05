@@ -1,5 +1,6 @@
-package com.github.fragtastic.jrpg;
+package com.github.fragtastic.example;
 
+import com.github.fragtastic.lwjgl.framework.GameState;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 

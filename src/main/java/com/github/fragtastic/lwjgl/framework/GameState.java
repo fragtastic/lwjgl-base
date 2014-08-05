@@ -1,4 +1,4 @@
-package com.github.fragtastic.jrpg;
+package com.github.fragtastic.lwjgl.framework;
 
 /**
  *
