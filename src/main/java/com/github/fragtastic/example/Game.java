@@ -13,27 +13,22 @@ import org.lwjgl.opengl.GL11;
  */
 public class Game {
 
-    GameState main = new TestState();
-    GameState main2 = new TestState();
-
-    int FRAMERATE = 60;
-    boolean gameRunning = true;
+    int FRAMERATE = 120;
+    static boolean gameRunning = true;
 
     public Game() {
 
         this.initGL();
 
-        main.switchTo();
+        new TestState();
 
         while (gameRunning) {
-
-            main.update();
-            main.draw();
+            GameState.tick(Util.getDelta());
 
             Display.update();
             Display.sync(FRAMERATE);
 
-            if (Display.isCloseRequested()) {
+            if (Display.isCloseRequested() || GameState.stateStack.isEmpty()) {
                 gameRunning = false;
             }
         }
@@ -58,7 +53,6 @@ public class Game {
         }
         System.out.println("OpenGL version: " + GL11.glGetString(GL11.GL_VERSION));
     }
-
 
     public static void main(String[] args) {
         Util.setNatives();
